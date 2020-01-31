@@ -1,6 +1,6 @@
 /*
  *
- * Project Name:   reformation of waste plastic into useful structure
+ * Project Name:   automatic reformation of waste plastic into useful structure machine 
  * Author List:    Sanjay Bisht,Abdul ahad, Rachna
  * Filename:     wast_plastic_refigition.c
  * Functions:    setup(),loop()
@@ -27,18 +27,26 @@ Servo Servo3;
 
 
 
- /*
-                            *
-                            * Function Name:setup()
-                            * Input:  S1,S2,S3,S4,Pump,Mixer_motor,rack_pinion_motor_clock,rack_pinion_motor_anticlock
-                            * Output:    lcd.print();
-                            * Logic: this funxtion defined all the inputs and output of the controller;
-  * Example Call: none
-  *
- */
+/*
+ *
+ * Function Name:loop()
+ * Input: S1--> switch for rack motor Clockwise,
+ *        S2--> switch for rack motor AntiClockwise,
+ *        S3--> switch for rack and pinon with water motor,
+ *        S4--> switch for backup use,
+ *        Pump--> Used for pump on the water motor,
+ *        Mixer_motor--> switching the mixer motor ,
+ *        rack_pinion_motor_clock--> rack pinion motor switching to drive clockwise,
+ *        rack_pinion_motor_anticlock--> rack pinion motor switching to drive anticlockwise,
+ * Output:    lcd.print();digital write();
+ * Logic: this funxtion defined all the inputs and output of the controller;
+ * Example Call: none
+ *
+*/
+
 void setup()
 {        
-lcd.begin();
+  lcd.begin();
   lcd.backlight();
   Servo1.attach(9);
   Servo2.attach(10);
@@ -65,16 +73,22 @@ lcd.begin();
 }
 
 
- /*
-                            *
-                            * Function Name:loop()
-                            * Input: S1-->switch for input,
-                            *        S2-->,S3,S4,Pump,Mixer_motor,rack_pinion_motor_clock,rack_pinion_motor_anticlock
-                            * Output:    lcd.print();digital write();
-                            * Logic: this funxtion defined all the inputs and output of the controller;
-  * Example Call: none
-  *
- */
+/*
+ *
+ * Function Name:loop()
+ * Input: S1--> switch for rack motor Clockwise,
+ *        S2--> switch for rack motor AntiClockwise,
+ *        S3--> switch for rack and pinon with water motor,
+ *        S4--> switch for backup use,
+ *        Pump--> Used for pump on the water motor,
+ *        Mixer_motor--> switching the mixer motor ,
+ *        rack_pinion_motor_clock--> rack pinion motor switching to drive clockwise,
+ *        rack_pinion_motor_anticlock--> rack pinion motor switching to drive anticlockwise,
+ * Output:    lcd.print();digital write();
+ * Logic: this funxtion defined all the inputs and output of the controller;
+ * Example Call: none
+ *
+*/
 void loop()
 {
     lcd.clear();
@@ -94,14 +108,14 @@ void loop()
   delay(500);
 
   lcd.clear();
-  lcd.print("Cemant Felling..");
+  lcd.print("Cemant Filling..");
   Servo2.write(0);
   delay(5000);
   Servo2.write(90);
   delay(500);
 
   lcd.clear();
-  lcd.print("Sant Felling....");
+  lcd.print("Sand Filling....");
   Servo3.write(0);
   delay(5000);
   Servo3.write(90);
